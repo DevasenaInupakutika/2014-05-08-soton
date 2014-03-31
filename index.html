@@ -15,6 +15,13 @@ instructor: ["Bogdan Vera", "Devasena Inupakutika"]
 contact: Maike Sonnewald (mjsp106@soton.ac.uk), admin-uk@software-carpentry.org
 ---
 
+{% if page.instructor %}
+<p>
+  <strong>Instructors:</strong>
+  {{page.instructor | join: ', ' %}}
+</p>
+{% endif %}
+
 {% include bootcamps/instructors.html %}
 {% include bootcamps/what.html %}
 {% include bootcamps/who.html %}
@@ -43,25 +50,45 @@ contact: Maike Sonnewald (mjsp106@soton.ac.uk), admin-uk@software-carpentry.org
 
 <hr/>
 
-<h2>Topics</h2>
+<h2>Timetable</h2>
+<p>
+<strong> Thursday, 8th May</strong>
+<ul>
+<li>9:00 - 9:30 Welcome</li>
+<li>09:30 - 10:00 Setup </li>
+<li>10:00 - 11:30 Command Line: Unix Shell Scripting </li>
+<li>11:30 - 12:30 Version control 1 </li>
+<li>13:30 - 15:00 Version control 2 </li>
+<li>15:15 - 16:30 Introduction to programming with Python 1</li>
+</ul>
+<strong> Friday, 9th May</strong>
+<ul>
+<li>9:00 - 9:30  Introduction to programming with Python 2</li>
+<li>9:30 - 11:00 Good programming practice with Python </li>
+<li>11:15 - 13:00 Data manipulation with Python and scientific programming in Python: Numpy </li>
+<li>14:00 - 14:30 Reading/ Writing data files and Excel in Python (excelr/excelw)</li>
+<li>14:30 - 15:30 Unit Testing</li>
+<li>15:30 - 16:30 Consultancy / Final exercise</li>
+</ul>
+</p>
+
+<!--<h2>Topics</h2>
 
 <div class="row-fluid">
   <div class="span6">
     <h3><a href="lessons/swc-shell/tutorial.html">Version control</a></h3>
     <ul>
-<!--      <li>{% include guide-shell/intro/title.md %}</li> -->
+        <li>{% include guide-shell/intro/title.md %}</li> 
 
     </ul>
   </div>
   <div class="span6">
     <h3><a href="lessons/swc-db/tutorial.html">Programming with Python</a></h3>
     <ul>
-<!--      <li>{% include guide-db/programming/title.md %}</li> -->
+        <li>{% include guide-db/programming/title.md %}</li> 
     </ul>
   </div>
-</div>
-
-<hr/>
+</div> -->
 
 <h2>Reference Guides</h2>
 
