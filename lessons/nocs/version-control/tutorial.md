@@ -1,12 +1,12 @@
 --- 
 layout: lesson 
 root: ../../.. 
-github_username: apawlik
-bootcamp_slug: 2014-04-09-GARNET
+github_username: DevasenaInupakutika
+bootcamp_slug: 2014-05-08-soton
 title: Version control with Git  
 ---
 
-**Based on materials by Mike Jackson, Greg Wilson, Chris Cannam, Katy
+**Based on materials by Mike Jackson, Greg Wilson, Aleksandra Pawlik, Chris Cannam, Katy
 Huff, Anthony Scopatz, Joshua R. Smith, and Sri Hari Krishna
 Narayanan.**
 
