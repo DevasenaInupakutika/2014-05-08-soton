@@ -18,17 +18,17 @@ MARKDOWN_SRC = \
 	setup.md \
 	team.md \
 	intro.md \
-	$(sort $(wildcard novice/shell/*.md)) \
-	$(sort $(wildcard novice/git/*.md)) \
-	$(sort $(wildcard novice/python/*.md)) \
-	$(sort $(wildcard novice/sql/*.md)) \
-	$(sort $(wildcard novice/extras/*.md)) \
-	$(sort $(wildcard novice/teaching/*.md)) \
-	$(sort $(wildcard novice/ref/*.md))
+	$(sort $(wildcard nocs_bootcamp/shell/*.md)) \
+	$(sort $(wildcard nocs_bootcamp/git/*.md)) \
+	$(sort $(wildcard nocs_bootcamp/python/*.md)) \
+	$(sort $(wildcard nocs_bootcamp/sql/*.md)) \
+	$(sort $(wildcard nocs_bootcamp/extras/*.md)) \
+	$(sort $(wildcard nocs_bootcamp/teaching/*.md)) \
+	$(sort $(wildcard nocs_bootcamp/ref/*.md))
 
 NOTEBOOK_SRC = \
-	$(sort $(wildcard novice/python/??-*.ipynb)) \
-	$(sort $(wildcard novice/sql/??-*.ipynb))
+	$(sort $(wildcard nocs_bootcamp/python/??-*.ipynb)) \
+	$(sort $(wildcard nocs_bootcamp/sql/??-*.ipynb))
 
 # Slides.
 SLIDES_SRC = \
@@ -47,13 +47,13 @@ HTML_DST = \
 BOOK_SRC = \
 	intro.md \
 	team.md \
-	novice/shell/index.md $(sort $(wildcard novice/shell/??-*.md)) \
-	novice/git/index.md $(sort $(wildcard novice/git/??-*.md)) \
-	novice/python/index.md $(patsubst %.ipynb,%.md,$(sort $(wildcard novice/python/??-*.ipynb))) \
-	novice/sql/index.md $(patsubst %.ipynb,%.md,$(sort $(wildcard novice/sql/??-*.ipynb))) \
-	novice/extras/index.md $(sort $(wildcard novice/extras/??-*.md)) \
-	novice/teaching/index.md  $(sort $(wildcard novice/teaching/??-*.md)) \
-	novice/ref/index.md  $(sort $(wildcard novice/ref/??-*.md)) \
+	nocs_bootcamp/shell/index.md $(sort $(wildcard nocs_bootcamp/shell/??-*.md)) \
+	nocs_bootcamp/git/index.md $(sort $(wildcard nocs_bootcamp/git/??-*.md)) \
+	nocs_bootcamp/python/index.md $(patsubst %.ipynb,%.md,$(sort $(wildcard nocs_bootcamp/python/??-*.ipynb))) \
+	nocs_bootcamp/sql/index.md $(patsubst %.ipynb,%.md,$(sort $(wildcard nocs_bootcamp/sql/??-*.ipynb))) \
+	nocs_bootcamp/extras/index.md $(sort $(wildcard nocs_bootcamp/extras/??-*.md)) \
+	nocs_bootcamp/teaching/index.md  $(sort $(wildcard nocs_bootcamp/teaching/??-*.md)) \
+	nocs_bootcamp/ref/index.md  $(sort $(wildcard nocs_bootcamp/ref/??-*.md)) \
 	bib.md \
 	tmp/gloss.md \
 	rules.md \
@@ -96,7 +96,7 @@ $(BOOK_DST) : $(OUT)/index.html $(BOOK_TMP) _templates/book.tpl tmp/gloss.md bin
 # Build HTML versions of Markdown source files using Jekyll.
 $(OUT)/index.html : $(MARKDOWN_SRC) $(NOTEBOOK_MD)
 	jekyll -t build -d $(OUT)
-	sed -i -e 's!img src="novice/python/!img src="!g' $(OUT)/novice/python/??-*.html
+	sed -i -e 's!img src="nocs_bootcamp/python/!img src="!g' $(OUT)/nocs_bootcamp/python/??-*.html
 
 index.html setup.md : _includes/setup.html
 
@@ -110,25 +110,25 @@ tmp/gloss.md : gloss.md
 	sed -e 's!](#!](#g:!g' -e 's!<a name="!<a name="g:!g' $< > $@
 
 # Patch image paths in the sections.
-tmp/novice/shell/%.md : novice/shell/%.md
+tmp/nocs_bootcamp/shell/%.md : nocs_bootcamp/shell/%.md
 	@mkdir -p $$(dirname $@)
-	sed -e 's!<img src="img!<img src="novice/shell/img!g' $< > $@
+	sed -e 's!<img src="img!<img src="nocs_bootcamp/shell/img!g' $< > $@
 
-tmp/novice/git/%.md : novice/git/%.md
+tmp/nocs_bootcamp/git/%.md : nocs_bootcamp/git/%.md
 	@mkdir -p $$(dirname $@)
-	sed -e 's!<img src="img!<img src="novice/git/img!g' $< > $@
+	sed -e 's!<img src="img!<img src="nocs_bootcamp/git/img!g' $< > $@
 
-tmp/novice/python/%.md : novice/python/%.md
+tmp/nocs_bootcamp/python/%.md : nocs_bootcamp/python/%.md
 	@mkdir -p $$(dirname $@)
-	sed -e 's!<img src="img!<img src="novice/python/img!g' $< > $@
+	sed -e 's!<img src="img!<img src="nocs_bootcamp/python/img!g' $< > $@
 
-tmp/novice/sql/%.md : novice/sql/%.md
+tmp/nocs_bootcamp/sql/%.md : nocs_bootcamp/sql/%.md
 	@mkdir -p $$(dirname $@)
-	sed -e 's!<img src="img!<img src="novice/sql/img!g' $< > $@
+	sed -e 's!<img src="img!<img src="nocs_bootcamp/sql/img!g' $< > $@
 
-tmp/novice/extras/%.md : novice/extras/%.md
+tmp/nocs_bootcamp/extras/%.md : nocs_bootcamp/extras/%.md
 	@mkdir -p $$(dirname $@)
-	sed -e 's!<img src="img!<img src="novice/extras/img!g' $< > $@
+	sed -e 's!<img src="img!<img src="nocs_bootcamp/extras/img!g' $< > $@
 
 # All other Markdown files used in the book.
 tmp/%.md : %.md
