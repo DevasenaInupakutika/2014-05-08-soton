@@ -140,8 +140,8 @@ We now know how to switch directories, run programs, and look at the contents of
 
 ## Short Exercises
 
-1.	Print out the contents of the `nocs-shell/dictionary.txt` file. What does this file contain?2.	Without changing directories, (you should still be in `nocs-shell`), use one short command to print the contents of all of the files in the `/home/user/{{page.bootcamp_slug}}/lessons/nocs/nocs-shell/data/nocs` directory._____________________________________________________________________________________________________________________________________________________________________________________
-`cat` is a terrific program, but when the file is really big, it can be annoying to use. The program, `less`, is useful for this case. Enter the following command: 
+1.	Print out the contents of the `nocs-shell/dictionary.txt` file. What does this file contain?2.	Without changing directories, (you should still be in `nocs-shell`), use one short command to print the contents of all of the files in the `/home/user/{{page.bootcamp_slug}}/lessons/nocs/nocs-shell/data/nocs` directory._____________________________________________________________________________________________________________________________________________________________________________________
+`cat` is a terrific program, but when the file is really big, it can be annoying to use. The program, `less`, is useful for this case. Enter the following command: 
  `less nocs-shell/dictionary.txt` `less` opens the file, and lets you navigate through it. The commands are identical to the `man` program. Use "space" to go forward and hit the "b" key to go backwards. The "g" key goes to the beginning of the file and "G" goes to the end. Finally, hit "q" to quit.
 `less` also gives you a way of searching through files. Just hit the "/" key to begin a search. Enter the name of the word you would like to search for and hit enter. It will jump to the next location where that word is found. Try searching the `dictionary.txt` file for the word "cat". If you hit "/" then "enter", `less` will just repeat the previous search. 
 
