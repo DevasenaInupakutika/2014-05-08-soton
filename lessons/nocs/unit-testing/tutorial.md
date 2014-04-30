@@ -38,6 +38,30 @@ function, we can run the entire suite to make sure that all the tests pass (ie,
 that our function gives the correct output for all the combinations of input 
 that we have decided to test).
 
+For example, let's say that we have a function that reads in a data file, does 
+some processing, and returns a result. We can test the function by giving it a 
+small data file, for which we can calculate the correct result by hand, and 
+making sure that the function gives the correct answer for this small file. 
+This gives us more confidence that if we run the function on a different data 
+set, perhaps a huge one for which we can't verify the results by hand, that 
+we'll get an accurate result.
+
+Even better, if we make changes to the internals of our function, we can run 
+our tests again to make sure that we haven't accidentally broken anything (this 
+is known as a "regression"). This makes us more free to continue to improve the 
+performance of our code over time, and avoids the dreaded "it's working, don't 
+touch it" phenomena.
+
+In this session, we're going to use the simple and very popular `nose` package 
+to write and run our tests.
+
+**Unit Testing Example**
+
+
+
+
+
+
 
 
 
