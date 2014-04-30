@@ -61,7 +61,7 @@ We'll practice unit testing using a function that we've already written to
 extract the mean number of stations with *Harmonic* tidal wave prediction type per day from a csv file. First, let's place this function in an external module. To do this, copy the code 
 below into a text file in this directory, and name it `mean_predictions.py`.
 
-import matplotlib.mlab as ml
+ import matplotlib.mlab as ml
 	import numpy as np
 	
 	def get_sightings(filename, focusstation):
