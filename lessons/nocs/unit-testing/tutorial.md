@@ -57,6 +57,32 @@ to write and run our tests.
 
 **Unit Testing Example**
 
+We'll practice unit testing using a function that we've already written to 
+extract the mean number of stations with *Harmonic* tidal wave prediction type per day from a csv file. First, let's place this function in an external module. To do this, copy the code 
+below into a text file in this directory, and name it `mean_predictions.py`.
+
+         import matplotlib.mlab as ml
+	import numpy as np
+	
+	def get_sightings(filename, focusstation):
+	
+		# Load table
+		tab = ml.csv2rec(filename)
+	
+		# Find number of records and total count of animals seen
+		isfocus = (tab['station'] == focusstation)
+		totalrecs = np.sum(isfocus)
+		meancount = np.mean(tab['count'][isfocus])
+	
+		# Return num of records and stations where tides are seen
+		return totalrecs, meancount
+
+This function uses boolean arrays to calculate the total number of records and 
+mean number of stations per day for the focus station.
+
+
+
+
 
 
 
