@@ -6,7 +6,7 @@ bootcamp_slug: 2014-05-08-soton
 title: Version control with Git  
 ---
 
-**Based on materials by Mike Jackson, Greg Wilson, Aleksandra Pawlik, Chris Cannam, Katy
+**Based on materials by Aleksandra Pawlik, Mike Jackson, Greg Wilson, Chris Cannam, Katy
 Huff, Anthony Scopatz, Joshua R. Smith, and Sri Hari Krishna
 Narayanan.**
 
@@ -60,7 +60,7 @@ repositories.
 Tracking your changes with a local repository
 ---------------------------------------------
 
-Version control is centred around the notion of a *repository* which
+Version control is centred round the notion of a *repository* which
 holds your directories and files. We'll start by looking at a local
 repository. The local repository is set up in a directory in your local
 filesystem (local machine).
@@ -74,16 +74,16 @@ on it further with one of our colleagues.
  First, let's create a directory:
 
      
-       $ mkdir folders 
-       $ cd folders
+       $ mkdir nocs_papers 
+       $ cd nocs_papers
 
 Now, we need to set up this directory up to be a Git repository (or
 "initiate the repository"):
 
        $ git init
-    Initialized empty Git repository in /home/user/folders/.git/
+    Initialized empty Git repository in /home/user/nocs_papers/.git/
 
-The directory "folders" is now our working directory. 
+The directory "nocs_papers" is now our working directory. 
 
  If we look in this directory, we'll find a *.git* directory:
 
@@ -140,16 +140,17 @@ repository in your file system.
 
 ### Add a file to the repository
 
-Now, we'll create a file. Let's say we're going to write a sample file in folder:
+Now, we'll create a file. Let's say we're going to write a journal
+paper:
 
-    $ nano sample.txt
+    $ nano journal.txt
 
-and add fields for Day, Temperature, Salinity, Surface heat flux, Hydrostatic pressure and
-Wind Stress, and save the file.\
+and add headings for Title, Author, Introduction, Conclusion and
+References, and save the file.\
  git status allows us to find out about the current status of files in
 the repository. So, we can run,
 
-    $ git status sample.txt
+    $ git status journal.txt
 
 Information about what Git knows about the file is displayed. For now,
 the important bit of information is that our file is listed as Untracked
@@ -157,8 +158,8 @@ which means it's in our working directory but Git is not tracking it -
 that is, any changes made to this file will not be recorded by Git. To
 tell Git about the file, we will use the *add* command:
 
-    $ git add sample.txt
-    $ git status sample.txt
+    $ git add journal.txt
+    $ git status journal.txt
     
 Now, our file is now listed as one of some Changes to be committed. 
     
@@ -190,9 +191,9 @@ description followed by a longer explanation, if necessary.
 
  If we save our commit message, Git will now commit our file.
 
-     [master (root-commit) c381e68] This is my sample circulation and climate ocean data file.
+     [master (root-commit) c381e68] This is my journal paper.
      1 file changed, 9 insertions(+)
-     create mode 100644 sample.txt
+     create mode 100644 journal.txt
 
 This output shows the number of files changed and the number of lines
 inserted or deleted across all those files. Here, we've changed (by
@@ -200,7 +201,7 @@ adding) 1 file and inserted 9 lines.
 
  Now, if we look at its status,
 
-    $ git status sample.txt
+    $ git status journal.txt
     # On branch master
     nothing to commit (working directory clean)
 
@@ -217,10 +218,10 @@ The output shows: the commit identifier (also called revision number)
 which uniquely identifies the changes made in this commit, author, date,
 and your comment. 
 
- Now let's make some more changes to our sample.txt file . If we now
+ Now let's make some more changes to our journal.txt file . If we now
 run,
 
-     $ git status sample.txt
+     $ git status journal.txt
 
 we see changes not staged for commit section and our file is marked as
 modified. This means that a file Git knows about has been modified by us
@@ -228,15 +229,15 @@ but has not yet been committed. So we can add it to the staging area and
 then commit the changes:
 
      
-    $ git add sample.txt
+    $ git add journal.txt
     $ git commit
     
 Note that in this case we used "git add" to put journal.txt to the staging area. Git already knows this file should be tracked but doesn't know if we want to commit the changes we made to the file  in the repository and hence we have to add the file to the staging area. 
 
 It can sometimes be quicker to provide our commit messages at the command-line by doing:
 
-    $ git add sample.txt
-    $ git commit -m "Added today's data for circulation and climate of ocean." 
+    $ git add journal.txt
+    $ git commit -m "Added subsection headings." 
 
 Let's add a directory, common and a file references.txt for references
 we may want to reuse:
@@ -244,15 +245,15 @@ we may want to reuse:
     $ mkdir common
     $ nano common/references.txt
     
-We will also add a few lines to our file (sample.txt). Now we need to record our work in the repository so we need to make a commit.
+We will also add a few lines to our paper (journal.txt). Now we need to record our work in the repository so we need to make a commit.
 First we tell Git to track the references. We can actually tell Git to track everything in the given subdirectory:
 
     $ git add common
 
 All files that are in "common" are now tracked.
-We would also have to add sample.txt to the staging area. But there is a shortcut. We can use option "-a" for "commit". This option means "commit all files that are tracked and that have been modified".
+We would also have to add journal.txt to the staging area. But there is a shortcut. We can use option "-a" for "commit". This option means "commit all files that are tracked and that have been modified".
 
-    $ git commit -am "Added common directory and references file with Cohen et al reference and described data in the file"
+    $ git commit -am "Added common directory and references file with Cohen et al reference and described data in the paper"
 
 and Git will add, then commit, both the directory and the file.
 
@@ -307,11 +308,11 @@ If we created a new commit without creating a new branch Git
 would not know what to do with it (since there is already a commit in
 master branch from the current state which we checked out c4354a...). We
 will get back to branches and HEAD pointer later in this tutorial. \
- If we look at sample.txt, we'll see it's our very first version. And
+ If we look at journal.txt, we'll see it's our very first version. And
 if we look at our directory,
 
     $ ls
-    sample.txt
+    journal.txt
 
 Our directory with the references is gone.But, rest easy, while it's
 gone from our working directory, it's still in our repository. We can
@@ -322,7 +323,7 @@ jump back to the latest commit by doing:
 And common will be there once more,
 
     $ ls
-    common sample.txt
+    common journal.txt
 
 So we can get any version of our files from any point in time. In other
 words, we can set up our working directory back to any stage it was when
@@ -354,8 +355,8 @@ We can list tags by doing:
 
 Now if we change our file,
 
-    $ git add sample.txt
-    $ git commit -m "..." sample.txt
+    $ git add journal.txt
+    $ git commit -m "..." journal.txt
 
 We can checkout our previous version using our tag instead of a commit
 identifier.
@@ -369,7 +370,7 @@ Branching
 
 You might have noticed the term branch in status messages,
 
-    $ git status sample.txt
+    $ git status journal.txt
     # On branch master
     nothing to commit (working directory clean)
 
@@ -460,20 +461,20 @@ If you want to learn more about workflows with Git, have a look at the [AstroPy 
 
 ### Branching in practice
 
-One of our colleagues wants to contribute to the oceanographic data but it's not
-quite sure if it will actually make a valid sample data file. So it will be safer
+One of our colleagues wants to contribute to the paper but it's not
+quite sure if it will actually make a publication. So it will be safer
 to create a branch and carry on working on this "experimental" version
 of the paper in a branch rather than in the master.
 
-    $ git checkout -b dataWJohn
-    Switched to a new branch 'dataWJohn'
+    $ git checkout -b paperWJohn
+    Switched to a new branch 'paperWJohn'
 
 Now let's change the title of our paper and the autors (adding John
 Smith). Let's commit our changes. Before we do that, it's a good
 practice to check whether we're working in the correct branch.
 
     $ git branch
-    * dataWJohn
+    * paperWJohn
       master
 
 The * indicates which branch we're currently in. Let's commit. If we
@@ -485,32 +486,32 @@ want to work now in our master branch. We can switch by using:
 ### Merging and resolving conflicts
 
 We are now working on two papers. Our main one in our master branch and
-the one which may possibly be collaborative work in our "dataWJohn"
+the one which may possibly be collaborative work in our "paperWJohn"
 branch. Let's suppose that we have a new idea for the title for our main
 paper. We can change it in our master branch. Let's do it and commit
 changes.
 
-    $ nano sample.txt
+    $ nano journal.txt
     ......
-    $ git add sample.txt
-    $ git commit -m "Rewrote the Day" sample.txt
+    $ git add journal.txt
+    $ git commit -m "Rewrote the title" journal.txt
 
 After some discussions with John we decided that there is going to be a
 major change to our plan. We will publish together. And hence it makes
 sense now to merge all that was authored together with John in branch
-"datarWJohn". 
+"paperWJohn". 
 
  We can do that by *merging* that branch with the master branch. Let's
 try doing that:
 
-    $ git merge dataWJohn
-    Auto-merging sample.txt
-    CONFLICT (content): Merge conflict in sample.txt
+    $ git merge paperWJohn
+    Auto-merging journal.txt
+    CONFLICT (content): Merge conflict in journal.txt
     Automatic merge failed; fix conflicts and then commit the result.
 
 Git cannot complete the merge because there is a conflict - if you
-recall, sample.txt differs in the same places (lines) in the master and
-the dataWJohn branch. We have to resolve the conflict and then complete
+recall, journal.txt differs in the same places (lines) in the master and
+the paperWJohn branch. We have to resolve the conflict and then complete
 the merge. Let's see a bit more details:
 
     $ git status
@@ -523,15 +524,15 @@ the merge. Let's see a bit more details:
     # Unmerged paths:
     #   (use "git add ..." to mark resolution)
     #
-    # both modified:      sample.txt
+    # both modified:      journal.txt
     #
 
-Let's look inside sample.txt:
+Let's look inside journal.txt:
 
     <<<<<<< HEAD 
-    Title: A paper about proteines
+    Title: A paper about ocean tidal energy
     =======
-    Title: A paper about everything but proteines
+    Title: A paper about everything but ocean tidal energy
     >>>>>>> 71d34decd32124ea809e50cfbb7da8e3e354ac26 
 
 The mark-up shows us the parts of the file causing the conflict and the
@@ -539,11 +540,11 @@ versions they come from. We now need to manually edit the file to
 resolve the conflict. This means removing the mark-up and doing one of:
 
 -   Keep the local version, which, here, is the one marked-up by HEAD
-    i.e. "Title: A paper about proteines"
+    i.e. "Title: A paper about ocean tidal energy"
 -   Keep the remote version, which, here, is the one marked-up by the
-    commit identifier i.e. "Title: A paper everything but proteines"
+    commit identifier i.e. "Title: A paper about everything but ocean tidal energy"
 -   Or keep a combination of the two e.g. "Title: A paper about
-    proteines and everything else"
+    ocean tidal energy and everything else"
 
 We edit the file. Then commit our changes e.g.
 
@@ -594,7 +595,7 @@ Now, we can create a repository on GitHub,
 
 -   Log in to GitHub (if you don't have an account, set up one)
 -   Click on the Create icon on the top right
--   Enter Repository name: "2014-04-GARNET-YOURNAME"
+-   Enter Repository name: "2014-05-soton-YOURNAME"
 -   For the purpose of this exercise we'll create a public repository
 -   Make sure the Initialize this repository with a README is unselected
 -   Click Create Repository
@@ -602,7 +603,7 @@ Now, we can create a repository on GitHub,
 You'll get a page with new information about your repository. We already
 have our local repository and we will be pushing it to GitHub.
 
-    git remote add origin https://github.com/USERNAME/2014-04-GARNET-YOURNAME.git
+    git remote add origin https://github.com/USERNAME/2014-05-soton-YOURNAME.git
     git push -u origin master
 
 This sets up an alias, origin, to correspond to the URL of our new
@@ -616,7 +617,7 @@ repository on GitHub.
     Compressing objects: 100% (30/30), done.
     Writing objects: 100% (38/38), 3.59 KiB, done.
     Total 38 (delta 9), reused 0 (delta 0)
-    To https://github.com/USERNAME/2014-04-GARNET-YOURNAME.git
+    To https://github.com/USERNAME/2014-05-soton-YOURNAME.git
     * [new branch]      master -> master
     Branch master set up to track remote branch master from origin.
 
@@ -634,23 +635,23 @@ access GitHub, we can access our repository.
 Now, let's do something drastic!
 
     $ cd ..
-    $ rm -rf papers
+    $ rm -rf nocs_papers
 
 We've just wiped our local repository! But, as we've a copy on GitHub we
 can just copy, or clone that,
 
-    $ git clone https://USERNAME@github.com/USERNAME/2014-04-GARNET-YOURNAME.git
-    Cloning into '2014-04-GARNET-YOURNAME'...
+    $ git clone https://USERNAME@github.com/USERNAME/2014-05-soton-YOURNAME.git
+    Cloning into '2014-05-soton-YOURNAME'...
     Password for 'https://USERNAME@github.com':
     remote: Counting objects: 12, done.
     remote: Compressing objects: 100% (4/4), done.
     remote: Total 12 (delta 0), reused 0 (delta 0)
     Unpacking objects: 100% (12/12), done.
 
-Now, if we change into "2014-04-GARNET-YOURNAME" we can see that we have
+Now, if we change into "2014-05-soton-YOURNAME" we can see that we have
 our repository,
 
-    $ cd 2014-04-GARNET-YOURNAME
+    $ cd 2014-05-soton-YOURNAME
     $ git log
 
 and we can see our Git configuration files too,
@@ -658,7 +659,7 @@ and we can see our Git configuration files too,
     $ ls -A
     common  .git  journal.txt
 
-But where is the papers directory, you might ask? papers was the
+But where is the nocs_papers directory, you might ask? nocs_papers was the
 directory that held our local repository but was not a part of it.
 
 ### Push changes to a remote repository
@@ -666,7 +667,7 @@ directory that held our local repository but was not a part of it.
 We can use our cloned repository just as if it was a local repository so
 let's make some changes to our files and commit these. 
 
- Having done that, how do we send our changes back to the remote
+Having done that, how do we send our changes back to the remote
 repository? We can do this by pushing our changes,
 
     $ git push
@@ -693,7 +694,7 @@ us to get the latest changes down from a repository by *pullling* them.
  To get the partner's changes, go to the repository you cloned from
 their GitHub account:
 
-     $cd 2014-04-GARNET-YOUR-PARTNERS-NAME
+     $cd 2014-05-soton-YOUR-PARTNERS-NAME
 
 And pull the changes
 
