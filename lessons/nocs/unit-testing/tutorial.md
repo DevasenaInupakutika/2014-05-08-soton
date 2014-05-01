@@ -142,6 +142,182 @@ Just for fun, try changing your test so that it fails (for example, assert that
 the number of Nazan Bay records should be 3). What output do you see now? Don't 
 forget to change the test back so that it passes after you're done.
 
+>### Exercise 1 - Test the Fire Island results
+>
+>Add an additional test to your test file to make sure that your function also 
+>gives the right answer when the station is  Fire Island. Run `nosetests` and make 
+>sure both tests pass.
+
+Great, now we have two tests that pass. However, both of these tests were 
+fairly straightforward, in that they tested the expected behaviour of the 
+function under "normal" inputs. What about corner or boundary cases? For 
+example, what should our function do if the station is not found anywhere in the 
+data set?
+
+Let's say that we decide that our function should return 0 for the number of 
+records and 0 for the mean stations per record if the station is not found in the 
+data set. Let's write a test to see if our function does this already:
+
+	def test_station_not_present():
+	    statrec, statmean = get_sightings(filename, 'NotPresent')
+		assert statrec == 0, 'Station missing should return zero records'
+	    assert statmean == 0, 'Station missing should return zero mean'
+
+If we run our test suite now, we see that this test fails. The output doesn't 
+give us much of a hint as to what went wrong though - we know that statmean was 
+not equal to zero, but what was it?
+
+To find out, add the line `print statrec, statmean` right above the first 
+assert statement, run the test suite again, and look at the output. Now we can 
+see that the statmean was 'nan', which stands for "not a number". This is 
+because when station is not found, our current function returns 0 for the 
+number of records and 0 for the total count. To calculate the mean, it tries to 
+divide 0/0, and gets 'nan'.
+
+>### Exercise 2 - Fixing our function for a boundary case
+>
+>Modify the function `get_sightings` so that if the station is not present, both 
+>totalrecs and meancount are 0. HINT: Check if totalrecs is zero before 
+>calculating meancount - if totalrecs is zero, meancount must also be zero.
+>
+>Run your test suite again to make sure all three tests now pass.
+
+Here's another special case - all of the station names in the data sets are 
+capitalised, with the first letter in uppercase and the rest of the letters in 
+lowercase. What if someone enters the name of the station using the wrong case. 
+For example, they might call the function with the argument 'Nazan bAy' for the 
+station name.
+
+>### Exercise 3 - Fixing our function for bad input
+>
+>Write a test function that will pass only if your function returns the correct
+>answer for stations if the input argument focusstation is set to 'Nazan bAy'. Run this 
+>test, and see that it currently fails.
+>
+>Then, modify the function so that this test passes. HINT: You can use the 
+>method 'capitalize' on any string to correct its capitalization.
+>
+>Run your test suite again to make sure all four tests now pass.
+>
+>__Bonus__
+>
+>Determine what your function should return if a user gives the function a file 
+>that does not exist. Write a test that checks that this value is indeed 
+>returned for the case of a missing file, and modify your function to return it 
+>as desired.
+
+You can imagine adding more test functions as you think of more unusual cases 
+that you want your function to correctly address. It is not unusual for the 
+file containing test cases to be several times longer than the file containing 
+the actual functions!
+
+Now we're in a great position - we now have more confidence that our code is 
+doing what we expect it to do.
+
+Now let's say that we are planning to share our code with a colleague who is 
+less experienced with programming, and we think that he/she might not 
+understand the neat boolean indexing tricks that we've been using. For clarity, 
+we decide that we'll replace the guts of our `get_sightings` function with code 
+that calculates the same thing but uses a for loop instead. We've already 
+written this code in the previous lesson, so we can simply erase our existing 
+`get_sightings` function and replace it with this code instead:
+
+
+	def get_sightings(filename, focusstation):
+	
+	    # Load table
+	    tab = ml.csv2rec(filename)
+		
+		# Standardize capitalization of focusstation
+		focusstation = focusstation.capitalize()
+
+	    # Loop through all records, countings recs and stations
+	    totalrecs = 0
+	    totalcount = 0
+	    for rec in tab:
+			if rec['station'] == focusstation:
+	            totalrecs += 1
+	            totalcount += rec['count']
+	
+	    meancount = totalcount/totalrecs
+	
+	    # Return num of records and stations where Harmonic Tidal Waves are seen
+	    return totalrecs, mean count
+
+Thinking ahead, we made sure to add a line to fix the capitalization problem 
+right away so that our fourth unit test should pass. Since this code worked 
+before, we're confident that it will work now. Just to be sure, though we run 
+our test suite again.
+
+>### Exercise 4 - Examining and fixing regressions
+>
+>You are shocked to discover that two of the four tests now fail! How can this 
+>be? We were sure that the new for loop code was correct, and we looked at its 
+>output before to convince ourselves that it was correct...
+>
+>Try to uncover the causes of this regression. One failure should have a fairly 
+>obvious cause (it relates to the issue of a station not being present, which 
+>we check with the third test). The second failure has a more subtle cause - 
+>try to figure out the problem, and correct the function to give the right 
+>answer.
+
+### Test Driven Development - the joy of Red/Green/Refactor
+
+Instead of fixing the above code, we're going to delete get_sightings, and do a very simple run through TDD.
+
+The big idea here is that you think about your problem and write your unit tests *before* 
+you write a single line of code. 
+- This forces you to think about what your problem in terms of different modes of 
+  success/failure and various edge cases, rather than just the basic functionality. 
+- It means that you implement the right amount of functionality without overbuilding.
+- It also gives you a ready-made specification for your design
+
+We have already written our first 4 test cases. 
+- Run ``nosetests``. You will see everything fail (Red)
+
+Now we're going to write a bare minimum ``get_sightings`` that passes the first test case. The code will be 
+really stupid
+
+    def get_sightings(filename, focusstation):
+		return (2, 17)
+	
+This is clearly wrong BUT it passes a couple of test cases. It has also forced you to think about the structure of your function. 
+
+Now that you have a couple of Greens you would refactor the code to be a little smarter. 
+
+Continue to repeat this process of turning Red to Green; then refactoring and cleaning up.
+
+Hopefully, this actually helps you write better code that has fewer bugs, and gives you deeper insight into the structure of your 
+program.
+
+Example:
+
+    def get_sightings(filename, focusstation):
+    
+    	# Load table
+    	tab = ml.csv2rec(filename)
+    
+    	# Standardize capitalization of focusstation
+    	focusstation = focusstation.capitalize()
+    
+    	# Loop through all records, countings recs and stations
+        totalrecs = 0.
+        totalcount = 0.
+    	for rec in tab:
+            if rec['station'] == focusstation:
+            	totalrecs += 1
+            	totalcount += rec['count']
+    
+    	if totalrecs==0:
+            meancount = 0
+    	else:
+        	meancount = totalcount/totalrecs
+    
+    	# Return num of records and stations where Harmonic Tidal waves are seen
+    	return totalrecs, meancount
+
+__BONUS__ If there is time, write some tests that will pass for a different csv file.
+
 
 
 
