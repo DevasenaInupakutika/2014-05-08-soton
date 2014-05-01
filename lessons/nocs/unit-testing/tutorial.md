@@ -58,8 +58,8 @@ to write and run our tests.
 **Unit Testing Example**
 
 We'll practice unit testing using a function that we've already written to 
-extract the mean number of stations with *Harmonic* tidal wave prediction type per day from a csv file. First, let's place this function in an external module. To do this, copy the code 
-below into a text file in this directory, and name it `mean_predictions.py`.
+extract the mean number of stations with *Harmonic* tidal wave prediction type per sightings from a csv file. First, let's place this function in an external module. To do this, copy the code 
+below into a text file in this directory, and name it `mean_sightings.py`.
 
     import matplotlib.mlab as ml
 	import numpy as np
@@ -78,7 +78,73 @@ below into a text file in this directory, and name it `mean_predictions.py`.
 		return totalrecs, meancount
 
 This function uses boolean arrays to calculate the total number of records and 
-mean number of stations per day for the focus station.
+mean number of stations per sighting for the focus station.
+
+To confirm that everything's working correctly, open up a new IPython notebook 
+(in this same directory) and run the following in a cell:
+
+	from mean_sightings import get_sightings
+	print get_sightings('sightings_tab_sm.csv', 'Nazan Bay')
+
+This should give you the correct answer for the Nazan Bay (check to make sure by 
+looking at the raw data file and counting by hand).
+
+Now that we have the function in a module, let's write some unit tests to make 
+sure that the function is giving us the correct answers. Create a new text file 
+called `test_mean_sightings.py`, which will hold our unit tests. At the top of 
+this file, type (or copy) in the following code, which will import the function 
+that we wish to test and set the filename that we want to use for the testing.
+
+	from mean_sightings import get_sightings
+
+	filename = 'sightings_tab_sm.csv'
+
+Note that we are using a small, "toy" data set for testing so that we can 
+calculate correct answers by hand.
+
+Now, let's write our first test function, which will simply test to make sure 
+that our function gives the correct answer when called using this small data 
+set and the Nazan Bay as arguments. Test functions (written for the `nose` testing 
+package) can contain any type of Python code, like regular functions, but have 
+a few key features. First, they don't take any arguments. Second, they contain 
+at least one `assert` statement - the test will pass if the condition following 
+the `assert` statement is True, and the test will fail if it's False.
+
+An example will make this more clear. Here's a test that checks whether the 
+function returns the correct answers for the small data set and the Nazan Bay. Copy 
+and paste this at the end of the `test_mean_sightings.py` file.
+
+	def test_bay_is_correct():
+	    bayrec, baymean = get_sightings(filename, 'Nazan Bay')
+		assert bayrec == 2, 'Number of records for Nazan Bay is wrong'
+	    assert baymean == 17, 'Mean sightings at Nazan Bay is wrong'
+
+Note that we calculated the correct values of `bayrec` and `baymean` by hand. 
+Make sure that you get these right!
+
+Now we're ready to run our suite of tests (so far, just this one test). Open a 
+command line window, and `cd` to the directory containing your new Python 
+files. Type `nosetests`, and examine the output. It should look something like 
+this:
+
+	.
+	----------------------------------------------------------------------
+	Ran 1 test in 0.160s
+	
+	OK
+
+The dot on the first line shows that we had one test, and that it passed. There 
+is one character printed for each test. A '.' means the test passed, a 'F' 
+means the test failed, and an 'E' means there was an error in the test function 
+itself.
+
+Just for fun, try changing your test so that it fails (for example, assert that 
+the number of Nazan Bay records should be 3). What output do you see now? Don't 
+forget to change the test back so that it passes after you're done.
+
+
+
+
 
 
 
