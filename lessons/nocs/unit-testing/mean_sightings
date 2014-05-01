@@ -1,0 +1,51 @@
+#!/usr/bin/env python
+
+import matplotlib.mlab as ml
+import numpy as np
+import sys
+
+def get_sightings(filename, focusstation):
+
+    # # Load table
+    # tab = ml.csv2rec(filename)
+
+    # focusanimal = focusstation.capitalize()
+
+    # # Find number of records and total count of stations where Harmonic tidal waves are seen.
+    # isfocus = (tab['station'] == focusstation)
+    # totalrecs = np.sum(isfocus)
+    # if totalrecs == 0:
+    #     meancount = 0
+    # else:
+    #     meancount = np.mean(tab['count'][isfocus])
+
+    # # Return num of records and stations where Harmonic tidal waves are seen.
+    # return totalrecs, meancount
+
+
+    # Load table
+    tab = ml.csv2rec(filename)
+
+
+    # Loop through all records, countings recs and stations
+    totalrecs = 0.
+    totalcount = 0.
+    focusstation = focusstation.capitalize()
+
+    for rec in tab:
+        if rec['station'] == focusstation:
+            totalrecs += 1
+            totalcount += rec['count']
+
+    if totalrecs == 0:
+        meancount = 0
+    else:
+        meancount = totalcount/totalrecs
+    # Return num of records and stations seen
+    return totalrecs, meancount
+
+
+filename = sys.argv[1]
+station = sys.argv[2]
+
+print get_sightings(filename, station)

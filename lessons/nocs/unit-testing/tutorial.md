@@ -117,7 +117,7 @@ and paste this at the end of the `test_mean_sightings.py` file.
 	def test_bay_is_correct():
 	    bayrec, baymean = get_sightings(filename, 'Nazan Bay')
 		assert bayrec == 2, 'Number of records for Nazan Bay is wrong'
-	    assert baymean == 17, 'Mean sightings at Nazan Bay is wrong'
+	    assert baymean == 17, 'Mean Tidal wave sightings at Nazan Bay is wrong'
 
 Note that we calculated the correct values of `bayrec` and `baymean` by hand. 
 Make sure that you get these right!
