@@ -69,7 +69,7 @@ below into a text file in this directory, and name it `mean_sightings.py`.
 		# Load table
 		tab = ml.csv2rec(filename)
 	
-		# Find number of records and total count of animals seen
+		# Find number of records and total count of stations where Harmonic tidal waves are seen
 		isfocus = (tab['station'] == focusstation)
 		totalrecs = np.sum(isfocus)
 		meancount = np.mean(tab['count'][isfocus])
