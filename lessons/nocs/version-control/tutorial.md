@@ -307,7 +307,7 @@ commits.
 If we created a new commit without creating a new branch Git
 would not know what to do with it (since there is already a commit in
 master branch from the current state which we checked out c4354a...). We
-will get back to branches and HEAD pointer later in this tutorial. \
+will get back to branches and HEAD pointer later in this tutorial. 
  If we look at journal.txt, we'll see it's our very first version. And
 if we look at our directory,
 
@@ -469,7 +469,7 @@ of the paper in a branch rather than in the master.
     $ git checkout -b paperWJohn
     Switched to a new branch 'paperWJohn'
 
-Now let's change the title of our paper and the autors (adding John
+Now let's change the title of our paper and the authors (adding John
 Smith). Let's commit our changes. Before we do that, it's a good
 practice to check whether we're working in the correct branch.
 
