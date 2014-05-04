@@ -564,7 +564,7 @@ we want to.
 
 ### GitHub
 
-[GitHub](http://GitHub.com) is a GitHub is a web-based hosting service which allows users to set up their private and public source code Git repositories. It provides
+[GitHub](http://GitHub.com):GitHub is a web-based hosting service which allows users to set up their private and public source code Git repositories. It provides
 tools for browsing, collaborating on and documenting code. Your
 organisation may also offer support for hosting Git repositories - ask
 your local system administrator. GitHub, like other services such
