@@ -111,7 +111,7 @@ When working with Git we will often need to provide some short but
 useful information. In order to enter this information we need an
 editor. We'll now tell Git which editor we want to be the default one
 (i.e. Git will always bring it up whenever it wants us to provide some
-information). \
+information). 
  You can choose any available in you system editor. For the purpose of
 this session we'll use nano:
 
@@ -146,7 +146,7 @@ paper:
     $ nano journal.txt
 
 and add headings for Title, Author, Introduction, Conclusion and
-References, and save the file.\
+References, and save the file.
  git status allows us to find out about the current status of files in
 the repository. So, we can run,
 
