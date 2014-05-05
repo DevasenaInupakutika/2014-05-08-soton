@@ -52,7 +52,7 @@ Then press enter. You should see the text "Hello, World" printed back to you. Th
 
 Let’s learn how to move around file system using command line scripts. This is really easy to do in GUI. But, once you learn basic Unix commands, you’ll see that it is pretty easy to do in shell too.
 
-For this purpose, we need to know our current location. The command `pwd` (print working directory) tells you where you are sitting in the directory tree. The command `ls` will list the files in files in the current directory. Directories are often called "folders" because of how they are represented in GUIs. Directories are just listings of files. They can contain other files or directories. 
+For this purpose, we need to know our current location. The command `pwd` (print working directory) tells you where you are sitting in the directory tree. The command `ls` will list the files in the current directory. Directories are often called "folders" because of how they are represented in GUIs. Directories are just listings of files. They can contain other files or directories. 
 
 Several commands are frequently used to create, inspect, rename and delete files and directories. In order to explore them, let’s open shell window, which starts usually with a dollar sign prompt indicating that shell is waiting for input:
 
