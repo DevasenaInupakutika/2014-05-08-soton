@@ -485,7 +485,7 @@ To do this, we need a program which allows us to create text files. There are ma
  
  `nano toBeSorted` 
 
-Now enter the four names as shown above. When you are done, press CONTROL+O to write out the file. Press enter to use the file name `toBeSorted`. Then press CONTROL+x to exit `nano`.
+Now enter the four names as shown above. When you are done, press `Ctrl + o` to write out the file. Press enter to use the file name `toBeSorted`. Then press `Ctrl+x` to exit `nano`.
 
 When you are back to the command line, enter the command:
 
