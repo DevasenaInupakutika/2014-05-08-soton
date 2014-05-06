@@ -327,7 +327,7 @@ This prints out the contents of the `appaloosa.txt` file. If you enter:
  
  `cat appaloosa.txt appaloosa.txt` 
 
-It will print out the contents of `appaloosa.txt` twice. cat just takes a list of file names and writes them out one after another (this is where the name comes from, `cat` is short for concatenate).
+It will print out the contents of `appaloosa.txt` twice. cat just takes a list of file names and writes them out one after another (this is where the name comes from, `cat` is short for concatenate). `cat` reads one or more files and prints them to standard output. The `>` operator can be used to combine multiple files into one. The `>>` operator can be used to append to an existing file.
 _____________________________________________________________________________________________________________________________________________________________________________________
 
 ## Short Exercises
