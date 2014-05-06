@@ -1,0 +1,6 @@
+Date,Stations,Tides_Count,Tides_Type
+2014.04.02,Nazan Bay,14,Harmonic
+2014.04.02,Tigalda Island,4,Subordinate
+2014.04.03,Fire Island,31,Harmonic
+2014.04.03,Nazan Bay,20,Harmonic
+2014.04.03,Fire Island,20,Harmonic
