@@ -129,7 +129,7 @@ The special directory `..` doesn't usually show up when we run `ls`. If we want 
  
 `./           ../   <rest of the files/ directories>`
 
-`-a` stands for "show all"; it forces ls to show us file and directory names that begin with `.`, such as `..` (which, if we're in `/users/user`, refers to the `/users` directory). As you can see, it also displays another special directory that's just called `.`, which means "the current working directory". It may seem redundant to have a name for it, but we'll see some uses for it soon.
+`-a` stands for "show all"; it forces `ls` to show us file and directory names that begin with `.`, such as `..` (which, if we're in `/users/user`, refers to the `/users` directory). As you can see, it also displays another special directory that's just called `.`, which means "the current working directory". It may seem redundant to have a name for it, but we'll see some uses for it soon.
 
 ## Arguments
 
