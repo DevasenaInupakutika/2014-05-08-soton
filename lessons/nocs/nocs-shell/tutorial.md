@@ -471,7 +471,7 @@ then `Ctrl + d`. You should see the lines:
 
  `are good` 
 
-printed back at you. The CONTROL+d keyboard shortcut inserts an end-of-file character. It is sort of the standard way of telling the program "I'm done entering data". The `|`character replaces the data from the keyboard with data from another command. You can string all sorts of commands together using the pipe.
+printed back at you. The `Ctrl + d` keyboard shortcut inserts an end-of-file character. It is sort of the standard way of telling the program "I'm done entering data". The `|`character replaces the data from the keyboard with data from another command. You can string all sorts of commands together using the pipe.
 
 The philosophy behind these command line programs is that none of them really do anything all that impressive. BUT when you start chaining them together, you can do some really powerful things really efficiently. If you want to be proficient at using the shell, you must learn to become proficient with the pipe and redirection operators: `|`,`>`, `>>`.
 
