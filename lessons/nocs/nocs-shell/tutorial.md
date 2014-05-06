@@ -139,7 +139,7 @@ Most commonly used shell programs have a manual. You can access the manual using
 
  `man ls`
  
-This will open the manual page for `ls`. Use the space key to go forward and `b` to go backwards. When you are done reading, just hit `q` to exit.
+This will open the manual page for `ls`. Use the `space` key to go forward and `b` to go backwards. When you are done reading, just hit `q` to exit.
 
 Programs that are run from the shell can get extremely complicated. To see an example, open up the manual page for the `find` program, which we will use later this session. No one can possibly learn all of these arguments, of course. So you will probably find yourself referring back to the manual page frequently.
 
