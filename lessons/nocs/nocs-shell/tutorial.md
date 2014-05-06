@@ -425,7 +425,7 @@ The `wc` program (word count) counts the number of lines, words, and characters 
 
 For each of the files indicated, `wc` has printed a line with three numbers. The first is the number of lines in that file. The second is the number of words. Finally, the total number of characters is indicated. The final line contains this information summed over all of the files. Thus, there were 21912 characters in total.
 
-Remember that the `nocs/*` and `gerdal/*4*` files were merged into the `all_data` file. So, we should see that `all_data` contains the same number of characters:
+Remember that the `nocs/*` and `gerdal/*4*` files were merged into the `all_data` file.
 
  `wc all_data`
  
