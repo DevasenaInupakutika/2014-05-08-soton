@@ -410,9 +410,8 @@ ________________________________________________________________________________
 Do the following:
 
 1.	Rename the `all_data_IMPORTANT` file to `all_data`.
-2.	Create a directory in the `data` directory called `foo`
-3.	Then, copy the `all_data` file into foo
-_____________________________________________________________________________________________________________________________________________________________________________________
+2.	Create a directory in the `data` directory called `foo`.
+3.	Then, copy the `all_data` file into foo.
 
 By default, `rm`, will NOT delete directories. You can tell `rm` to delete a directory using the `-r` option. Enter the following command:
 
