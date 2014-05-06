@@ -161,7 +161,7 @@ and you will jump directly to `nocs-shell` without having to go through the inte
 
 ## Full vs. Relative Paths
 
-The `cd` command takes an argument, which is the directory name. Directories can be specified using either a relative path or a full path. The directories on the computer are arranged into a hierarchy. The absolute path tells you where a directory is in that hierarchy. Navigate to the home directory. Now, enter the `pwd` command and you should see:
+The `cd` command takes an argument, which is the directory name. Directories can be specified using either a relative path or a full/absolute path. The directories on the computer are arranged into a hierarchy. The absolute path tells you where a directory is in that hierarchy. Navigate to the home directory. Now, enter the `pwd` command and you should see:
 
  `/home/user`
  
