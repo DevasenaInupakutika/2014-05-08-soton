@@ -276,8 +276,8 @@ Tab completion can also fill in the names of programs. For example, enter `e<tab
 You can easily access previous commands. Hit the up arrow.
 Hit it again. You can step backwards through your command history. The down arrow takes your forwards in the command history.
 
-^-C will cancel the command you are writing, and give you a fresh prompt.
-^-R will do a reverse-search through your command history. This is very useful.
+`Ctrl + C` will cancel the command you are writing, and give you a fresh prompt.
+`Ctrl + R`  will do a reverse-search through your command history. This is very useful.
 
 ## Which program?
 
