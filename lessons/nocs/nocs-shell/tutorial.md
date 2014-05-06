@@ -467,7 +467,7 @@ Notice that your cursor just sits there blinking. Tail is waiting for data to co
  
  `French fries are good` 
 
-then CONTROL+d. You should see the lines:
+then `Ctrl + d`. You should see the lines:
 
  `are good` 
 
