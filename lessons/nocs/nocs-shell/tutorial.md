@@ -413,7 +413,7 @@ Do the following:
 2.	Create a directory in the `data` directory called `foo`.
 3.	Then, copy the `all_data` file into foo.
 
-By default, `rm`, will NOT delete directories. You can tell `rm` to delete a directory using the `-r` option. Enter the following command:
+Note: By default, `rm`, will NOT delete directories. You can tell `rm` to delete a directory using the `-r` option. Enter the following command:
 
  `rm -r foo`
 
