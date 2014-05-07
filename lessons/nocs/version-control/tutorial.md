@@ -351,12 +351,16 @@ example,
 
 We can list tags by doing:
 
-    $ git tag
+    $ git tag 
 
 Now if we change our file,
 
     $ git add journal.txt
     $ git commit -m "..." journal.txt
+
+Below command will list commit identifiers with corresponding tags:
+
+    $ git log --decorate=full
 
 We can checkout our previous version using our tag instead of a commit
 identifier.
@@ -568,7 +572,7 @@ we want to.
 tools for browsing, collaborating on and documenting code. Your
 organisation may also offer support for hosting Git repositories - ask
 your local system administrator. GitHub, like other services such
-as [Launchpad](https://launchpad.net),[Bitucket](http://bitbucket.org),
+as [Launchpad](https://launchpad.net),[BitBucket](http://bitbucket.org),
 [GoogleCode](http://code.google.com), and
 [SourceForge](http://sourceforge.net) provides a wealth of resources to
 support projects including:
