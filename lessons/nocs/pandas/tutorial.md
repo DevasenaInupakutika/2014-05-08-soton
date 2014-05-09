@@ -717,7 +717,7 @@ Print out the cloud cover for each day in May.
 	Name: cloud_cover
 
 
-## Handing Missing Values
+## Handling Missing Values
 
 Pandas considers values like `NaN` and `None` to represent missing data. The `pandas.isnull` function can be used to tell whether or not a value is missing.
 
